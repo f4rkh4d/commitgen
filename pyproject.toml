@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "commitgen"
+version = "0.2.0"
+description = "reads staged diff, suggests a conventional-commit message. rule-based."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "farkhad", email = "bennett@frkhd.com" }]
+keywords = ["git", "commit", "conventional-commits", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+dependencies = [
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+commitgen = "commitgen.cli:main"
+
+[project.urls]
+Homepage = "https://frkhd.com/commitgen"
+Source = "https://github.com/f4rkh4d/commitgen"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/commitgen"]
