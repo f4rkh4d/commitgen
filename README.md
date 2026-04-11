@@ -1,5 +1,7 @@
 # commitgen
 
+
+![demo](docs/hero.gif)
 conventional-commit messages from your staged diff. no llm, no api key, no tokens. just regexes and path matching.
 
 ## what it is
