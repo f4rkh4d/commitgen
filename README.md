@@ -75,3 +75,18 @@ pytest -q
 ## license
 
 MIT. see LICENSE.
+
+## example before / after
+
+stage a typical mixed change — touched two files in `src/`, added a test, fixed a typo in a doc — and commitgen produces something like:
+
+```
+$ commitgen
+chore: tighten parser validation, add regression test
+
+- src/parser.rs: reject empty rule bodies before tokenization
+- tests/parser_empty.rs: cover the three obvious bad inputs
+- README.md: typo
+```
+
+the heuristic is dumb on purpose: count what changed by directory, pick the verb from the dominant change kind (added vs modified vs deleted vs renamed), bullet the path-prefix groups. no LLM, no API, no cost. it gets ~70% of my commits "good enough" to send as-is and the rest i edit by hand, which is faster than typing them from scratch.
